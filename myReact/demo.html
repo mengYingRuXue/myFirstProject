@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.js"></script>
+<script type="text/babel">
+    /* var demo = 1;
+    var element = <h1>demo{demo}</h1>
+    function love() {
+        return obj.a + obj.b;
+    }
+    const obj = {
+        a: "jack",
+        b: "rose"
+    }
+    const demo2 = <h1> {love()} </h1>
+    function demo3(flag) {
+        if(flag) {
+            return <h1> {love()} </h1>
+        }else {
+            return "<h1> demo1 </h1>"
+        }
+    }
+    function fn() {
+        demo++
+        ReactDOM.render(
+        <h1>demo{demo}</h1>,
+        document.getElementById('root')
+    )
+    }
+    // setInterval(fn, 1000);
+    function Foo(data) {
+        return <h1> {data.age} </h1>
+    }
+    const ele = <Foo name="jack" age="18" />
+    ReactDOM.render(ele,document.getElementById("root")) */
+    //组件
+    /* class Demo extends React.Component {
+        render() {
+            return <h1> 我的名字是: {this.props.name} </h1>
+        }
+    }
+    var ele = <Demo name="jack" />
+    
+    function App() {
+        return  <div>
+                    <Demo name="jack" />
+                    <Demo name="rose" />
+                </div>
+    }
+    ReactDOM.render(<App />,document.getElementById("root")) */
+    /* class Clock extends React.Component {
+        //数据
+        constructor(props) {
+            super(props)
+            this.state = {
+                date: new Date(),
+                flag: 1
+            }
+        }
+        componentDidMount(){
+            this.timeId = setInterval(() => {
+                this.tick()
+                // console.log(this.state.flag);
+            }, this.props.second);
+        }
+        componentWillUnmount(){
+            if(flag > 5) {
+                clearInterval(this.timeId)
+            }
+        }
+        tick() {
+            this.setState({
+                date: new Date(),
+                flag: this.state.flag+1
+            })
+        }
+        //结构
+        render() {
+            return (
+            <div>
+                <h1> 现在是北京时间: {this.state.date.toLocaleTimeString()} </h1>
+            </div>
+            )
+        }
+    }
+    function App() {
+        return (
+            <div>
+                <Clock second="1000" />
+                <Clock second="2000" />
+                <Clock second="3000" />
+            </div>
+        )
+    }
+    ReactDOM.render(<App />, document.getElementById("root")) */
+    //控制开关
+    class Toggle extends React.Component{
+        constructor(props) {
+            super(props)
+            this.state = {
+                isON: true
+            }
+            // this.handle = this.handle.bind(this)
+        }
+        handle = () => {
+            this.setState({
+                isON: !this.state.isON
+            })
+        }
+        render() {
+            return (
+                <button onClick={this.handle}>
+                    {this.state.isON? "NO": "OFF"}
+                </button>
+            )
+        }
+    }
+    ReactDOM.render(
+        <Toggle />,
+        document.getElementById("root")
+    )
+</script>
+
+</html>

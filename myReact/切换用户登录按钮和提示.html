@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.js"></script>
+<script type="text/babel">
+    class LoginText extends React.Component {
+        render() {
+            return (
+                <h1>欢迎访问!</h1>
+            )
+        }
+    }
+    class LogoutText extends React.Component {
+        render() {
+            return (
+                <h1>欢迎下次再来!</h1>
+            )
+        }
+    }
+    class App extends React.Component {
+        constructor(props){
+            super(props)
+            this.state = {
+                isLogin: true
+            }
+        }
+        handleLogin = () => {
+            this.setState({
+                isLogin: false
+            })
+        }
+        handleLogout = () =>{
+            this.setState({
+                isLogin: true
+            })
+        }
+        render() {
+            const isLogin = this.state.isLogin
+            if(isLogin) {
+                return (
+                    <div>
+                        <LoginText />,
+                        <button onClick={this.handleLogin}> 退出登录 </button>
+                    </div>
+                )
+            }else {
+                return (
+                    <div>
+                        <LogoutText />,
+                        <button onClick={this.handleLogout}> 登录 </button>
+                    </div>
+                )
+            }
+        }
+    }
+    ReactDOM.render(
+        <App />,
+        document.getElementById("root")
+    )
+</script>
+
+</html>

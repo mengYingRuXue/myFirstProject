@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.js"></script>
+<script type="text/babel">
+class Ipt extends React.Component {
+    state = {
+        username: "",
+        value: "grapefruit"
+    }
+    handleChange = e => {
+        this.setState({
+            value: e.target.value
+        })
+    }
+    handleSubmit = e => {
+        e.preventDefault()
+        console.log(this.state.value);
+    }
+    render() {
+        const {username} = this.state
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                选择你喜欢的风味:
+                <select value={this.state.value} onChange={this.handleChange}>
+                    <option value="grapefruit">葡萄柚</option>
+                    <option value="lime">酸橙</option>
+                    <option value="coconut">椰子</option>
+                    <option value="mango">芒果</option>
+                </select>
+                </label>
+                <input type="submit" value="提交" />
+            </form>
+        )
+    }
+}
+ReactDOM.render(
+        <Ipt />,
+        document.getElementById("root")
+    )
+</script>
+
+</html>
